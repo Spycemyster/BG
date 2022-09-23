@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/battle/placeholder_grid.png" type="Texture2D" id=1]
+[ext_resource path="res://src/scripts/battle/BattleCombat.gd" type="Script" id=2]
+
+[node name="Stage" type="Node"]
+script = ExtResource( 2 )
+map_path = NodePath("Map")
+camera_path = NodePath("Camera2D")
+characters_path = NodePath("Characters")
+grid_texture = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 352, 148.664 )
+current = true
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]

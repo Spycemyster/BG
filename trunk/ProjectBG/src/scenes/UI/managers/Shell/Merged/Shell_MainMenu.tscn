@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0c5fqb1mka0m"]
+
+[ext_resource type="PackedScene" uid="uid://cyi6kpy8lukrn" path="res://src/scenes/UI/managers/ShellManager.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://c7tnw8x27sf7i" path="res://src/scenes/UI/managers/Shell/ShellMainScreen.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bpnwlp6gkt4h1" path="res://src/scenes/UI/managers/Shell/ShellExpeditions.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://fv7fnmktp27t" path="res://src/scenes/UI/managers/Shell/ShellMarket.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://src/scenes/UI/managers/Shell/ShellTeamView.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://bicvs5nuhxtcv" path="res://src/scenes/UI/managers/Shell/ShellBattleStager.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://dnvsx2pblrfy3" path="res://src/scenes/UI/managers/Shell/ShellGuildView.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://df8mdgwvn03sn" path="res://src/scenes/UI/managers/Shell/ShellAdventureChooser.tscn" id="8"]
+
+[node name="ShellManager" node_paths=PackedStringArray("base_scene") instance=ExtResource("1")]
+base_scene = NodePath("ShellContainer/Shells/Main")
+
+[node name="ColorRect" parent="ShellContainer" index="0"]
+custom_minimum_size = Vector2i(0, 32)
+offset_bottom = 32.0
+
+[node name="Shells" parent="ShellContainer" index="1"]
+offset_top = 32.0
+
+[node name="Expeditions" parent="ShellContainer/Shells" index="0" instance=ExtResource("3")]
+visible = false
+
+[node name="Main" parent="ShellContainer/Shells" index="1" instance=ExtResource("2")]
+visible = false
+
+[node name="Market" parent="ShellContainer/Shells" index="2" instance=ExtResource("4")]
+visible = false
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TeamView" parent="ShellContainer/Shells" index="3" instance=ExtResource("5")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Battle" parent="ShellContainer/Shells" index="4" instance=ExtResource("6")]
+visible = false
+
+[node name="Guild" parent="ShellContainer/Shells" index="5" instance=ExtResource("7")]
+visible = false
+
+[node name="Adventure" parent="ShellContainer/Shells" index="6" instance=ExtResource("8")]
+grow_horizontal = 2
+grow_vertical = 2

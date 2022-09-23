@@ -1,0 +1,246 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnvsx2pblrfy3"]
+
+[ext_resource type="Script" path="res://src/scripts/UI/managers/Shell/ShellGuildView.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bssar8fq1jqvl" path="res://icon.png" id="2"]
+[ext_resource type="Script" path="res://src/scripts/UI/managers/Shell/MemberDisplay.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://d4k5i0safrlil" path="res://assets/images/gacha/star.png" id="5"]
+
+[node name="Guild" type="Control" node_paths=PackedStringArray("guild_members_list", "guild_display")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+guild_members_list = NodePath("Panel/HBoxContainer/ScrollContainer/GridContainer")
+guild_display = NodePath("Panel/HBoxContainer/Panel")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer"]
+offset_right = 574.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/ScrollContainer"]
+offset_right = 64.0
+offset_bottom = 64.0
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="Panel/HBoxContainer/ScrollContainer/GridContainer"]
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_vertical = 3
+texture_normal = ExtResource("2")
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer"]
+offset_left = 578.0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+script = ExtResource("3")
+name_path = NodePath("VBoxContainer/HBoxContainer/Name")
+level_path = NodePath("VBoxContainer/HBoxContainer/Level")
+exp_path = NodePath("VBoxContainer/HBoxContainer/Exp")
+pose_path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/Pose")
+stars_path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/Stars")
+star1_path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/Stars/1")
+star2_path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/Stars/2")
+star3_path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/Stars/3")
+star4_path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/Stars/4")
+star_timer_path = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/Pose/StarTimer")
+full_name_label_path = NodePath("VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Name/Info")
+job_label_path = NodePath("VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Job/Info")
+bio_label_path = NodePath("VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/VBoxContainer/Text")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+offset_right = 574.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="Name" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+offset_right = 188.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+text = "Test Name"
+fit_content_height = true
+
+[node name="Level" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+offset_left = 192.0
+offset_right = 381.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+text = "Level 0"
+fit_content_height = true
+
+[node name="Exp" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+offset_left = 385.0
+offset_right = 574.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+text = "100/100"
+fit_content_height = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+offset_top = 27.0
+offset_right = 574.0
+offset_bottom = 648.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+offset_right = 285.0
+offset_bottom = 621.0
+size_flags_horizontal = 3
+
+[node name="Stars" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2i(0, 60)
+offset_right = 285.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="1" type="TextureButton" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/Stars"]
+offset_right = 68.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("5")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="2" type="TextureButton" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/Stars"]
+offset_left = 72.0
+offset_right = 140.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("5")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="3" type="TextureButton" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/Stars"]
+offset_left = 144.0
+offset_right = 212.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("5")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="4" type="TextureButton" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/Stars"]
+offset_left = 216.0
+offset_right = 285.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("5")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Pose" type="TextureRect" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+offset_top = 64.0
+offset_right = 285.0
+offset_bottom = 621.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch_mode = 6
+
+[node name="StarTimer" type="Timer" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/Pose"]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+offset_left = 289.0
+offset_right = 574.0
+offset_bottom = 621.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer"]
+offset_right = 285.0
+offset_bottom = 127.0
+size_flags_horizontal = 3
+
+[node name="Name" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+offset_right = 285.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Name"]
+offset_right = 140.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Name"
+fit_content_height = true
+
+[node name="Info" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Name"]
+offset_left = 144.0
+offset_right = 285.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Alice Carott"
+fit_content_height = true
+
+[node name="Job" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+offset_top = 27.0
+offset_right = 285.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Job"]
+offset_right = 140.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Job"
+fit_content_height = true
+
+[node name="Info" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Job"]
+offset_left = 144.0
+offset_right = 285.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Paladin"
+fit_content_height = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+offset_top = 54.0
+offset_right = 285.0
+offset_bottom = 127.0
+
+[node name="Label" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/VBoxContainer"]
+offset_right = 285.0
+offset_bottom = 23.0
+text = "Biography"
+fit_content_height = true
+
+[node name="Text" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/VBoxContainer"]
+offset_top = 27.0
+offset_right = 285.0
+offset_bottom = 73.0
+text = "This is a test biography for the character that will be selected."
+fit_content_height = true

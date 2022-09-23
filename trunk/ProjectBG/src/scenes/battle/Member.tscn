@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/scripts/battle/Member.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture2D" id=2]
+
+[node name="Member" type="Sprite2D"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+max_health_rect_path = NodePath("CanvasLayer/MaxHealthRect")
+health_rect_path = NodePath("CanvasLayer/HealthRect")
+canvas_layer_path = NodePath("CanvasLayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="MaxHealthRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -35.0
+offset_top = -40.0
+offset_right = 35.0
+offset_bottom = -38.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="HealthRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -35.0
+offset_top = -40.0
+offset_right = 35.0
+offset_bottom = -38.0
+color = Color( 1, 0, 0, 1 )

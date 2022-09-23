@@ -1,0 +1,244 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://src/scripts/shop/ShopGachaAnimation.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/gacha/skybox.png" type="Texture2D" id=2]
+[ext_resource path="res://src/resources/shop/Common.tres" type="Resource" id=3]
+[ext_resource path="res://src/resources/shop/Legendary.tres" type="Resource" id=4]
+[ext_resource path="res://src/resources/shop/Uncommon.tres" type="Resource" id=5]
+[ext_resource path="res://src/resources/shop/Rare.tres" type="Resource" id=6]
+[ext_resource path="res://src/resources/shop/Epic.tres" type="Resource" id=7]
+
+[sub_resource type="Sky" id=1]
+panorama = ExtResource( 2 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+ambient_light_energy = 2.0
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Roll"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera3D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 2.5 ),
+"transitions": PackedFloat32Array( -2, 1 ),
+"update": 0,
+"values": [ Vector3( 30, 45, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 2.5 ),
+"transitions": PackedFloat32Array( -2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 5, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 3 ),
+"transitions": PackedFloat32Array( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_queued_particles"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 3.03143 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, -5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera3D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 3.03143 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -90, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 4.43828 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "TransitionOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="BoxMesh" id=3]
+size = Vector3( 14.56, 2, 4.334 )
+
+[sub_resource type="StandardMaterial3D" id=4]
+albedo_color = Color( 0.615686, 0.32549, 0.176471, 1 )
+
+[sub_resource type="BoxMesh" id=6]
+size = Vector3( 2, 0.4, 2 )
+
+[sub_resource type="StandardMaterial3D" id=8]
+metallic = 0.05
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 0.3
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=7]
+material = SubResource( 8 )
+
+[node name="Animation" type="Node"]
+script = ExtResource( 1 )
+drop_list_path = NodePath("DropList")
+animation_path = NodePath("AnimationPlayer")
+particle_player_path = NodePath("MeshInstance3D/Book/CPUParticles3D")
+back_path = NodePath("Button")
+animation_camera_path = NodePath("Camera3D")
+item_camera_path = NodePath("Items/ItemListCamera")
+item_list_path = NodePath("Items/ItemList")
+camera_tween_path = NodePath("Items/ItemListCamera/Tween")
+common = ExtResource( 3 )
+uncommon = ExtResource( 5 )
+rare = ExtResource( 6 )
+epic = ExtResource( 7 )
+legendary = ExtResource( 4 )
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D( 0.707107, 0.353553, 0.612372, 0, 0.866025, -0.5, -0.707107, 0.353553, 0.612372, 0, 5, 0 )
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="DropList" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 11 )
+anims/Roll = SubResource( 5 )
+anims/Transition = SubResource( 9 )
+anims/TransitionOut = SubResource( 10 )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0382322, -2.54356, -4.76439 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Book" type="Node3D" parent="MeshInstance3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17151, 0 )
+
+[node name="Left" type="MeshInstance3D" parent="MeshInstance3D/Book"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../..")
+
+[node name="Right" type="MeshInstance3D" parent="MeshInstance3D/Book"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../..")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="MeshInstance3D/Book"]
+emitting = false
+amount = 100
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+mesh = SubResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 1, 1 )
+spread = 60.0
+flatness = 0.3
+gravity = Vector3( 0, -32, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 0.6
+damping = 25.0
+scale_amount = 0.01
+scale_amount_random = 0.2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85904, 0 )
+light_energy = 0.5
+light_indirect_energy = 2.231
+light_bake_mode = 2
+
+[node name="Fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.5
+offset_right = 39.5
+offset_bottom = 39.0
+text = "Back"
+
+[node name="Items" type="Node3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0 )
+
+[node name="ItemListCamera" type="Camera3D" parent="Items"]
+
+[node name="Tween" type="Tween" parent="Items/ItemListCamera"]
+
+[node name="ItemList" type="Node3D" parent="Items"]

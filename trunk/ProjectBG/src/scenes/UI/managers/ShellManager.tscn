@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyi6kpy8lukrn"]
+
+[ext_resource type="Script" path="res://src/scripts/UI/managers/Shell/ShellManager.gd" id="1"]
+[ext_resource type="Material" path="res://src/resources/materials/BackgroundMaterial.tres" id="2"]
+[ext_resource type="Shader" path="res://src/shaders/Gradient.gdshader" id="4"]
+
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("4")
+shader_parameter/end_color = Color(0.458824, 0.490196, 1, 1)
+shader_parameter/is_vertical = null
+shader_parameter/start_color = Color(0, 0.392157, 1, 1)
+
+[sub_resource type="Shader" id="2"]
+code = "shader_type canvas_item;
+
+uniform int sample_width = 3;
+uniform int sample_height = 3;
+
+void fragment()
+{
+	int size = sample_width * sample_height;
+	float mult = 1.0f / float(size);
+	vec3 col = texture(SCREEN_TEXTURE, SCREEN_UV).xyz * mult;
+	for(int i = 0; i < size; i++) {
+		float x = float(i % sample_width - sample_width) / 2.0f;
+		float y = float(i  / sample_width - sample_height) / 2.0f;
+		vec2 uv = vec2(clamp(SCREEN_UV.x + SCREEN_PIXEL_SIZE.x * x, 0.0f, 1.0f), clamp(SCREEN_UV.y + SCREEN_PIXEL_SIZE.y * y, 0.0f, 1.0f));
+		col += texture(SCREEN_TEXTURE, uv).xyz * mult;
+	}
+	COLOR = vec4(col, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id="3"]
+shader = SubResource("2")
+shader_parameter/sample_height = 8
+shader_parameter/sample_width = 8
+
+[node name="ShellManager" type="CanvasLayer" node_paths=PackedStringArray("shells_parent", "back_button", "blur")]
+script = ExtResource("1")
+shells_parent = NodePath("ShellContainer/Shells")
+back_button = NodePath("ShellContainer/ColorRect/Button")
+blur = NodePath("PopupManager/Blur")
+
+[node name="Background" type="ColorRect" parent="."]
+material = ExtResource("2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShellContainer" type="VSplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = -256
+dragger_visibility = 2
+
+[node name="ColorRect" type="ColorRect" parent="ShellContainer"]
+material = SubResource("1")
+offset_right = 1152.0
+color = Color(0.615686, 0.568627, 1, 1)
+
+[node name="Button" type="Button" parent="ShellContainer/ColorRect"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 120.0
+grow_vertical = 2
+text = "Back"
+
+[node name="Shells" type="Control" parent="ShellContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PopupManager" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" type="ColorRect" parent="PopupManager"]
+material = SubResource("3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

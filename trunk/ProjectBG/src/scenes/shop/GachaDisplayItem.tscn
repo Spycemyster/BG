@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/scripts/shop/GachaDisplayItem.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture2D" id=2]
+
+[sub_resource type="StandardMaterial3D" id=2]
+
+[sub_resource type="SphereMesh" id=1]
+material = SubResource( 2 )
+radius = 0.5
+height = 1.0
+
+[node name="Item" type="Node3D"]
+script = ExtResource( 1 )
+sprite_path = NodePath("Sprite3D")
+name_path = NodePath("Label3D")
+particles_path = NodePath("CPUParticles3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+double_sided = false
+no_depth_test = true
+texture = ExtResource( 2 )
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+text = "Test Text"
+vertical_alignment = 2
+uppercase = true
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+amount = 100
+lifetime = 8.0
+mesh = SubResource( 1 )
+direction = Vector3( 0, 0, 1 )
+spread = 30.0
+initial_velocity = 6.0
+scale_amount = 0.01
+scale_amount_random = 0.05

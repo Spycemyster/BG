@@ -1,0 +1,270 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "RefCounted",
+"class": &"AuthProvider",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/auth/auth_provider.gd"
+}, {
+"base": "Sprite2D",
+"class": &"BattleMember",
+"language": &"GDScript",
+"path": "res://src/scripts/battle/Member.gd"
+}, {
+"base": "HBoxContainer",
+"class": &"ExpeditionEntry",
+"language": &"GDScript",
+"path": "res://src/scripts/UI/components/ExpeditionEntry.gd"
+}, {
+"base": "AuthProvider",
+"class": &"FacebookProvider",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/auth/providers/facebook.gd"
+}, {
+"base": "HTTPRequest",
+"class": &"FirebaseAuth",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/auth/auth.gd"
+}, {
+"base": "Node",
+"class": &"FirebaseDatabase",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/database/database.gd"
+}, {
+"base": "Node",
+"class": &"FirebaseDatabaseReference",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/database/reference.gd"
+}, {
+"base": "Node",
+"class": &"FirebaseDatabaseStore",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/database/database_store.gd"
+}, {
+"base": "Node",
+"class": &"FirebaseDynamicLinks",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/dynamiclinks/dynamiclinks.gd"
+}, {
+"base": "Node",
+"class": &"FirebaseFirestore",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore.gd"
+}, {
+"base": "Node",
+"class": &"FirebaseFunctions",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/functions/functions.gd"
+}, {
+"base": "Resource",
+"class": &"FirebaseResource",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/database/resource.gd"
+}, {
+"base": "Node",
+"class": &"FirebaseStorage",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/storage/storage.gd"
+}, {
+"base": "RefCounted",
+"class": &"FirebaseUserData",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/auth/user_data.gd"
+}, {
+"base": "RefCounted",
+"class": &"FirestoreCollection",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore_collection.gd"
+}, {
+"base": "RefCounted",
+"class": &"FirestoreDocument",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore_document.gd"
+}, {
+"base": "RefCounted",
+"class": &"FirestoreQuery",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore_query.gd"
+}, {
+"base": "RefCounted",
+"class": &"FirestoreTask",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore_task.gd"
+}, {
+"base": "RefCounted",
+"class": &"FunctionTask",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/functions/function_task.gd"
+}, {
+"base": "Resource",
+"class": &"GachaRarity",
+"language": &"GDScript",
+"path": "res://src/scripts/shop/GachaRarity.gd"
+}, {
+"base": "AuthProvider",
+"class": &"GitHubProvider",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/auth/providers/github.gd"
+}, {
+"base": "AuthProvider",
+"class": &"GoogleProvider",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/auth/providers/google.gd"
+}, {
+"base": "TextureButton",
+"class": &"GuildEntry",
+"language": &"GDScript",
+"path": "res://src/scripts/UI/components/GuildEntry.gd"
+}, {
+"base": "Control",
+"class": &"ShellBaseMenu",
+"language": &"GDScript",
+"path": "res://src/scripts/UI/managers/Shell/ShellBaseMenu.gd"
+}, {
+"base": "ShellBaseMenu",
+"class": &"ShellExpeditions",
+"language": &"GDScript",
+"path": "res://src/scripts/UI/managers/Shell/ShellExpeditions.gd"
+}, {
+"base": "ShellBaseMenu",
+"class": &"ShellMainScreen",
+"language": &"GDScript",
+"path": "res://src/scripts/UI/managers/Shell/ShellMainScreen.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"ShellManager",
+"language": &"GDScript",
+"path": "res://src/scripts/UI/managers/Shell/ShellManager.gd"
+}, {
+"base": "ShellBaseMenu",
+"class": &"ShellMarket",
+"language": &"GDScript",
+"path": "res://src/scripts/UI/managers/Shell/ShellMarket.gd"
+}, {
+"base": "ShellBaseMenu",
+"class": &"ShellTeamView",
+"language": &"GDScript",
+"path": "res://src/scripts/UI/managers/Shell/ShellTeamView.gd"
+}, {
+"base": "RefCounted",
+"class": &"StorageReference",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/storage/storage_reference.gd"
+}, {
+"base": "RefCounted",
+"class": &"StorageTask",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/storage/storage_task.gd"
+}, {
+"base": "RefCounted",
+"class": &"TimeFormatter",
+"language": &"GDScript",
+"path": "res://src/scripts/managers/TimeFormat.gd"
+}, {
+"base": "AuthProvider",
+"class": &"TwitterProvider",
+"language": &"GDScript",
+"path": "res://addons/godot-firebase/auth/providers/twitter.gd"
+}]
+_global_script_class_icons={
+"AuthProvider": "",
+"BattleMember": "",
+"ExpeditionEntry": "",
+"FacebookProvider": "",
+"FirebaseAuth": "",
+"FirebaseDatabase": "",
+"FirebaseDatabaseReference": "",
+"FirebaseDatabaseStore": "",
+"FirebaseDynamicLinks": "",
+"FirebaseFirestore": "",
+"FirebaseFunctions": "",
+"FirebaseResource": "",
+"FirebaseStorage": "",
+"FirebaseUserData": "",
+"FirestoreCollection": "",
+"FirestoreDocument": "",
+"FirestoreQuery": "",
+"FirestoreTask": "",
+"FunctionTask": "",
+"GachaRarity": "",
+"GitHubProvider": "",
+"GoogleProvider": "",
+"GuildEntry": "",
+"ShellBaseMenu": "",
+"ShellExpeditions": "",
+"ShellMainScreen": "",
+"ShellManager": "",
+"ShellMarket": "",
+"ShellTeamView": "",
+"StorageReference": "",
+"StorageTask": "",
+"TimeFormatter": "",
+"TwitterProvider": ""
+}
+
+[application]
+
+config/name="ProjectBG"
+run/main_scene="res://src/scenes/UI/menus/menu_startup.tscn"
+config/features=PackedStringArray("4.0")
+boot_splash/show_image=false
+boot_splash/bg_color=Color(1, 0.576471, 0.576471, 1)
+config/icon="res://icon.png"
+
+[autoload]
+
+SceneManager="*res://src/scenes/UI/managers/SceneManager.tscn"
+CheatMenu="*res://src/scenes/cheats/CheatMenu.tscn"
+BgConstants="*res://src/scripts/BGConstants.gd"
+GlobalData="*res://src/scripts/managers/GlobalData.gd"
+Downloader="*res://src/scripts/managers/Downloader.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+
+[debug]
+
+settings/stdout/verbose_stdout=true
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep_height"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg")
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":3,"pressed":false,"double_click":false,"script":null)
+]
+}
+toggle_cheat_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+environment/default_environment="res://default_env.tres"

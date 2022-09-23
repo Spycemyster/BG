@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bicvs5nuhxtcv"]
+
+[ext_resource type="Script" path="res://src/scripts/UI/managers/Shell/ShellBattleStager.gd" id="1"]
+
+[node name="BattleStager" type="Control" node_paths=PackedStringArray("member_grid", "start_battle")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+member_grid = NodePath("Panel/GridContainer")
+start_battle = NodePath("Panel/Button")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+anchors_preset = -1
+anchor_right = 0.389648
+anchor_bottom = 1.0
+columns = 3
+
+[node name="Button" type="Button" parent="Panel"]
+anchors_preset = -1
+anchor_left = 0.829102
+anchor_top = 0.878333
+anchor_right = 0.979492
+anchor_bottom = 0.963333
+text = "Start"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bek7b3wynoi2y"]
+
+[ext_resource type="Texture2D" uid="uid://bssar8fq1jqvl" path="res://icon.png" id="1"]
+[ext_resource type="Script" path="res://src/scripts/UI/components/GuildEntry.gd" id="2"]
+
+[node name="Entry" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_vertical = 3
+texture_normal = ExtResource("1")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("2")

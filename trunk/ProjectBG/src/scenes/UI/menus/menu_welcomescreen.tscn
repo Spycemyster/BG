@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://baee5jwerwr5d"]
+
+[ext_resource type="Material" path="res://src/resources/materials/BackgroundMaterial.tres" id="1"]
+[ext_resource type="Script" path="res://src/scripts/UI/menus/menu_welcomescreen.gd" id="2"]
+
+[node name="Welcome" type="CanvasLayer" node_paths=PackedStringArray("fun_fact_text", "fun_fact_timer")]
+script = ExtResource("2")
+fun_fact_text = NodePath("FunFactText")
+fun_fact_timer = NodePath("Timer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadingText" type="RichTextLabel" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -98.0
+offset_right = 118.0
+offset_bottom = -58.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "
+Loading..."
+fit_content_height = true
+
+[node name="FunFactText" type="RichTextLabel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "
+Tip: 
+"
+fit_content_height = true
+
+[node name="Timer" type="Timer" parent="."]

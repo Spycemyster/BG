@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://src/shaders/Gradient.gdshader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/is_vertical = true
+shader_param/start_color = Color( 0.454902, 0.886275, 1, 1 )
+shader_param/end_color = Color( 1, 0.168627, 0.67451, 1 )

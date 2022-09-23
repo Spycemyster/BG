@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyq1ec7rbd7bf"]
+
+[ext_resource type="Script" path="res://src/scripts/UI/managers/SceneManager.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bt4yqmi00q3wy" path="res://assets/masks/shards.png" id="2"]
+[ext_resource type="Shader" path="res://src/shaders/Transition.gdshader" id="3"]
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = ExtResource("3")
+shader_parameter/color = Color(1, 0.576471, 0.576471, 1)
+shader_parameter/cutoff = 1.0
+shader_parameter/mask = ExtResource("2")
+shader_parameter/smooth_size = 0.2
+
+[sub_resource type="Theme" id="4"]
+
+[sub_resource type="Animation" id="Animation_ycb2c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="3"]
+resource_name = "fade"
+length = 1.2
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_scene"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8yea7"]
+_data = {
+"RESET": SubResource("Animation_ycb2c"),
+"fade": SubResource("3")
+}
+
+[node name="SceneManager" type="CanvasLayer" node_paths=PackedStringArray("transition_player")]
+layer = 128
+script = ExtResource("1")
+transition_player = NodePath("AnimationPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8yea7")
+}

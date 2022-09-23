@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7tnw8x27sf7i"]
+
+[ext_resource type="Script" path="res://src/scripts/UI/managers/Shell/ShellMainScreen.gd" id="1"]
+
+[node name="ShellMainScreen" type="Control" node_paths=PackedStringArray("expedition", "signout", "market", "battle", "guild", "adventure")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+expedition = NodePath("Expeditions")
+signout = NodePath("Signout")
+market = NodePath("Market")
+battle = NodePath("Battle")
+guild = NodePath("Guild")
+adventure = NodePath("Adventure")
+
+[node name="Expeditions" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.202148
+anchor_top = 0.65
+anchor_right = 0.324219
+anchor_bottom = 0.711667
+offset_top = 3.05176e-05
+offset_bottom = 3.05176e-05
+text = "Expeditions"
+
+[node name="Adventure" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.483398
+anchor_top = 0.126667
+anchor_right = 0.605469
+anchor_bottom = 0.188333
+offset_top = 3.05176e-05
+offset_bottom = 3.05176e-05
+text = "Adventure"
+
+[node name="Battle" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.783203
+anchor_top = 0.31
+anchor_right = 0.901367
+anchor_bottom = 0.376667
+text = "Battle"
+
+[node name="Guild" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.774414
+anchor_top = 0.786667
+anchor_right = 0.888672
+anchor_bottom = 0.861667
+text = "Guild"
+
+[node name="Market" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.135742
+anchor_top = 0.265
+anchor_right = 0.243164
+anchor_bottom = 0.333333
+text = "Market"
+
+[node name="Signout" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0185547
+anchor_top = 0.876667
+anchor_right = 0.114258
+anchor_bottom = 0.945
+text = "Signout"

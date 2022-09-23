@@ -1,0 +1,65 @@
+Date : 2022-07-23 23:29:50
+Directory : d:\Documents\Code Stuff\Godot\BG\server-backend\functions
+Total : 27 files,  7928 codes, 211 comments, 140 blanks, all 8279 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |      5,484 |          0 |          2 |      5,486 |
+| Log                |          1 |      1,532 |          0 |         13 |      1,545 |
+| TypeScript         |         10 |        755 |        211 |        115 |      1,081 |
+| JavaScript         |         13 |        140 |          0 |          9 |        149 |
+| JSON with Comments |          1 |         17 |          0 |          1 |         18 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                           | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                              |         27 |      7,928 |        211 |        140 |      8,279 |
+| src                                                                                                            |         23 |        895 |        211 |        124 |      1,230 |
+| src\definitions                                                                                                |         10 |        427 |        146 |         74 |        647 |
+| src\definitions\characters                                                                                     |          2 |         32 |          0 |          2 |         34 |
+| src\definitions\daily_missions                                                                                 |          5 |         25 |          0 |          5 |         30 |
+| src\definitions\items                                                                                          |          2 |         19 |          0 |          2 |         21 |
+| src\entry                                                                                                      |          4 |        288 |         34 |         29 |        351 |
+| src\story                                                                                                      |          4 |         64 |          0 |          0 |         64 |
+| src\story\world0                                                                                               |          2 |         32 |          0 |          0 |         32 |
+| src\story\world1                                                                                               |          2 |         32 |          0 |          0 |         32 |
+| src\structures                                                                                                 |          1 |         23 |         14 |          3 |         40 |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                       | language           | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\firebase-debug.log                                   | Log                |      1,532 |          0 |         13 |      1,545 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\package-lock.json                                    | JSON               |      5,459 |          0 |          1 |      5,460 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\package.json                                         | JSON               |         25 |          0 |          1 |         26 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\account.ts                                       | TypeScript         |         32 |          0 |          6 |         38 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\auth-middleware.ts                               | TypeScript         |         48 |          9 |          7 |         64 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\characters\amber.js                  | JavaScript         |         16 |          0 |          1 |         17 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\characters\nicole.js                 | JavaScript         |         16 |          0 |          1 |         17 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\daily_missions\bonding_experience.js | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\daily_missions\hospital_tour.js      | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\daily_missions\radio_appearence.js   | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\daily_missions\take_uni_classes.js   | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\daily_missions\visit_town_center.js  | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\definitions.ts                       | TypeScript         |        351 |        146 |         65 |        562 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\items\gacha_roll.js                  | JavaScript         |          7 |          0 |          1 |          8 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\definitions\items\test_item.js                   | JavaScript         |         12 |          0 |          1 |         13 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\entry\cheats.ts                                  | TypeScript         |         62 |          5 |          6 |         73 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\entry\expeditions.ts                             | TypeScript         |        107 |          7 |          7 |        121 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\entry\mechanics.ts                               | TypeScript         |         77 |         16 |         10 |        103 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\entry\player.ts                                  | TypeScript         |         42 |          6 |          6 |         54 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\index.ts                                         | TypeScript         |         10 |          2 |          3 |         15 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\story\world0\chapter1.js                         | JavaScript         |         28 |          0 |          0 |         28 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\story\world0\world.js                            | JavaScript         |          4 |          0 |          0 |          4 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\story\world1\chapter1.js                         | JavaScript         |         28 |          0 |          0 |         28 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\story\world1\world.js                            | JavaScript         |          4 |          0 |          0 |          4 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\structures\bitarray.ts                           | TypeScript         |         23 |         14 |          3 |         40 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\src\utility.ts                                       | TypeScript         |          3 |          6 |          2 |         11 |
+| d:\Documents\Code Stuff\Godot\BG\server-backend\functions\tsconfig.json                                        | JSON with Comments |         17 |          0 |          1 |         18 |
+| Total                                                                                                          |                    |      7,928 |        211 |        140 |      8,279 |
++----------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

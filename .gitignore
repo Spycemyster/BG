@@ -1,0 +1,7 @@
+.import/
+.mono/
+bin/
+/server-backend/public/bin
+/server-backend/functions/lib
+bfg.jar
+export/
